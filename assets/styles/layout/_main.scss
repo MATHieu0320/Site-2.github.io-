@@ -2,6 +2,7 @@ main {
   .main-container {
     @include Spacebetween;
     align-items: start;
+    gap: 5px;
   }
   .main-1 {
     width: 50%;

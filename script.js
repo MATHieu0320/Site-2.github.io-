@@ -7,6 +7,7 @@ const ChangementImg = document.querySelector(".img2 ");
 const p = document.querySelector("#p-js");
 console.log(p);
 console.log(Cercles);
+NavUl.classList.add("NavADD");
 Hamburger.addEventListener("click", () => {
   NavUl.classList.toggle("NavUl");
 

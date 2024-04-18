@@ -134,6 +134,7 @@ header nav li a:hover {
 }
 header #hamburger {
   display: none;
+  cursor: pointer;
 }
 header .NavUl {
   display: block;
@@ -145,7 +146,17 @@ header .NavUl {
   transition: 1s ease-in;
   text-align: center;
   padding: 44px;
-  width: 95%;
+  min-width: 95%;
+  animation-name: Top;
+  animation-duration: 0.5s;
+}
+@keyframes Top {
+  0% {
+    top: -32%;
+  }
+  100% {
+    top: 10%;
+  }
 }
 header .NavLi {
   padding: 10px;
@@ -253,6 +264,7 @@ main .main-container {
   justify-content: space-between;
   align-items: center;
   align-items: start;
+  gap: 5px;
 }
 main .main-1 {
   width: 50%;
@@ -468,12 +480,17 @@ section .section2-container button {
   section .section2-container h6 {
     margin-bottom: 17px;
     position: relative;
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   section .section2-container::after {
     transform: rotate(111deg);
     left: -143px;
     top: 26%;
+  }
+}
+@media screen and (max-width: 620px) {
+  section .section2-container h6 {
+    font-size: 2rem;
   }
 }
 footer {

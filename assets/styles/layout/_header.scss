@@ -18,7 +18,9 @@ header {
   }
   #hamburger {
     display: none;
+    cursor: pointer;
   }
+
   .NavUl {
     display: block;
     background-color: $Very-Pale-Red;
@@ -29,8 +31,19 @@ header {
     transition: 1s ease-in;
     text-align: center;
     padding: 44px;
-    width: 95%;
+    min-width: 95%;
+    animation-name: Top;
+    animation-duration: 0.5s;
   }
+  @keyframes Top {
+    0% {
+      top: -32%;
+    }
+    100% {
+      top: 10%;
+    }
+  }
+
   .NavLi {
     padding: 10px;
   }

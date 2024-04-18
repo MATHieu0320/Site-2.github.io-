@@ -124,11 +124,16 @@ section {
   section .section2-container h6 {
     margin-bottom: 17px;
     position: relative;
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   section .section2-container::after {
     transform: rotate(111deg);
     left: -143px;
     top: 26%;
+  }
+}
+@media screen and (max-width: 620px) {
+  section .section2-container h6 {
+    font-size: 2rem;
   }
 }
