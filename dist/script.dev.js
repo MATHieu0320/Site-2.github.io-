@@ -5,23 +5,26 @@ var NavLi = document.querySelectorAll("nav ul li");
 var Hamburger = document.getElementById("hamburger");
 var Cercles = document.querySelectorAll(".circle1");
 var ChangementImg = document.querySelector(".img2 ");
+var autreimg = document.getElementById("#suprimer");
 var p = document.querySelector("#p-js");
-console.log(p);
-console.log(Cercles);
-NavUl.classList.add("NavADD");
+var h5 = document.querySelector("#h5-js");
 Hamburger.addEventListener("click", function () {
-  NavUl.classList.toggle("NavUl");
+  console.log("p");
+  NavUl.classList.toggle("NavADD");
   NavLi.forEach(function (li) {
-    li.classList.toggle("NavLi");
+    li.classList.add("NavLi");
   });
-});
-var tableauTexte = [" \"ge has supercharged our team s workflow. The <br>\n    naintain visibility on larger milestones at all times<br>\n    keeps everyone motivated.\"", " \"We have been able to cancel so many other subscriptions\n    since using Manahe. There is no more cross-channel\n    confusion and everyone is much more focused.\"", " \"Manage ailows us to provide structure and pro <br />\n    keeps us organized and focused.I can't stop recording <br />\n    them toeveryone i talk to! \"", "\"Their sofware allows us to track, manage and colloborate<br>\n    on our projects from anywhere. it keeps the whole team in-<br>\n    sync without being intrusive\""];
+}); // h5.innerHTML = `<h5>${tableauName[nombre]}</h5>`;
+
+var tableauName = ["Anisha Li", "Ali Bravo", "Richard Watts", "Shanai Gough"];
+var tableauTexte = [" \"ge has supercharged our team s workflow. The \n    naintain visibility on larger milestones at all times\n    keeps everyone motivated.\"", " \"Manage ailows us to provide structure and pro \n    keeps us organized and focused.I can't stop recording \n    them toeveryone i talk to! \"", "\"Their sofware allows us to track, manage and colloborate\n    on our projects from anywhere. it keeps the whole team in-\n    sync without being intrusive\"", " \"We have been able to cancel so many other subscriptions\n    since using Manahe. There is no more cross-channel\n    confusion and everyone is much more focused.\""];
 
 function apres(number) {
   setTimeout(function () {
-    ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(number, ".png\" alt=\"avatar-Ali\"  />");
+    ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(number, ".png\" alt=\"avatar-Ali\" id = \"surprimer\"  />");
+    h5.innerHTML = "<h5>".concat(tableauName[count], " </h5>");
     p.innerHTML = "<p>".concat(tableauTexte[count], "</p>");
-  }, 2000);
+  });
 }
 
 function add(nombre) {
@@ -36,40 +39,50 @@ function remove(number) {
 }
 
 var count = -1;
-setInterval(function () {
-  if (count == 3) {
-    count = -1;
+var Clear = "Intervall";
+var media1 = window.matchMedia("(max-width:1000px)");
+var media2 = window.matchMedia("(min-width:1000px)");
+
+window.onload = function () {
+  if (media1.matches) {
+    console.log("p");
+
+    var _Clear = setInterval(function () {
+      if (count == 3) {
+        count = -1;
+      }
+
+      count = count + 1;
+
+      if (count == 0) {
+        add(0);
+        remove(0);
+        apres(1);
+      }
+
+      if (count == 1) {
+        add(1);
+        remove(1);
+        apres(2);
+      }
+
+      if (count == 2) {
+        add(2);
+        remove(2);
+        apres(3);
+      }
+
+      if (count == 3) {
+        add(3);
+        remove(3);
+        apres(0);
+      } else if (media2.matches) {
+        clearInterval(_Clear);
+        autreimg.style.display = "none"; // h5.innerHTML = `<h5>${tableauName[2]} </h5>`;
+
+        p.innerHTML = "<p>".concat(tableauTexte[3], "</p>");
+        ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(0, ".png\" alt=\"avatar-Ali\"  />");
+      }
+    }, 2000);
   }
-
-  count = count + 1;
-
-  if (count == 0) {
-    add(0);
-    remove(0);
-    apres(1);
-  }
-
-  if (count == 1) {
-    add(1);
-    remove(1);
-    apres(2);
-  }
-
-  if (count == 2) {
-    add(2);
-    remove(2);
-    apres(3);
-  }
-
-  if (count == 3) {
-    add(3);
-    remove(3);
-    apres(0);
-  }
-
-  console.log(count);
-}, 2000); // setInterval(() => {
-//   count2++;
-//   console.log(count);
-//   Cercles[count].classList.remove("CircleStyle");
-// }, 2600);d
+};
