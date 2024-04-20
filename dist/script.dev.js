@@ -10,26 +10,23 @@ var p = document.querySelector("#p-js");
 var h5 = document.querySelector("#h5-js");
 Hamburger.addEventListener("click", function () {
   console.log("p");
-  NavUl.classList.toggle("NavADD");
+  NavUl.classList.toggle("NavUl");
   NavLi.forEach(function (li) {
     li.classList.add("NavLi");
   });
 }); // h5.innerHTML = `<h5>${tableauName[nombre]}</h5>`;
 
-var tableauName = ["Anisha Li", "Ali Bravo", "Richard Watts", "Shanai Gough"];
-var tableauTexte = [" \"ge has supercharged our team s workflow. The \n    naintain visibility on larger milestones at all times\n    keeps everyone motivated.\"", " \"Manage ailows us to provide structure and pro \n    keeps us organized and focused.I can't stop recording \n    them toeveryone i talk to! \"", "\"Their sofware allows us to track, manage and colloborate\n    on our projects from anywhere. it keeps the whole team in-\n    sync without being intrusive\"", " \"We have been able to cancel so many other subscriptions\n    since using Manahe. There is no more cross-channel\n    confusion and everyone is much more focused.\""];
+var tableauName = ["Anisha Li", "Richard Watts", "Shanai Gough", "Ali Bravo"];
+var tableauTexte = [" \"ge has supercharged our team s workflow. The \n    naintain visibility on larger milestones at all times\n    keeps everyone motivated.\"", " \"Manage ailows us to provide structure and pro \n    keeps us organized and focused.I can't stop recording \n    them toeveryone i talk to! \"", "\"Their sofware allows us to track, manage and colloborate\n    on our projects from anywhere. it keeps the whole team in-\n    sync without being intrusive\"", " \"We have been able to cancel so many other subscriptions<BR>\n    since using Manahe. There is no more cross-channel<br>\n    confusion and everyone is much more focused.\""];
 
 function apres(number) {
-  setTimeout(function () {
-    ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(number, ".png\" alt=\"avatar-Ali\" id = \"surprimer\"  />");
-    h5.innerHTML = "<h5>".concat(tableauName[count], " </h5>");
-    p.innerHTML = "<p>".concat(tableauTexte[count], "</p>");
-  });
+  ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(number, ".png\" alt=\"avatar-Ali\" id = \"surprimer\"  />");
+  h5.innerHTML = "<h5>".concat(tableauName[count], " </h5>");
+  p.innerHTML = "<p>".concat(tableauTexte[count], "</p>");
 }
 
 function add(nombre) {
   Cercles[nombre].classList.add("CircleStyle");
-  p.innerHTML = "<p>".concat(tableauTexte[nombre], "</p>");
 }
 
 function remove(number) {
@@ -39,15 +36,12 @@ function remove(number) {
 }
 
 var count = -1;
-var Clear = "Intervall";
-var media1 = window.matchMedia("(max-width:1000px)");
-var media2 = window.matchMedia("(min-width:1000px)");
+var media1 = window.matchMedia("(max-width:750px)");
+var media2 = window.matchMedia("(min-width:750px)");
 
-window.onload = function () {
+window.onload = function c() {
   if (media1.matches) {
-    console.log("p");
-
-    var _Clear = setInterval(function () {
+    var Clear = setInterval(function () {
       if (count == 3) {
         count = -1;
       }
@@ -77,11 +71,13 @@ window.onload = function () {
         remove(3);
         apres(0);
       } else if (media2.matches) {
-        clearInterval(_Clear);
-        autreimg.style.display = "none"; // h5.innerHTML = `<h5>${tableauName[2]} </h5>`;
-
-        p.innerHTML = "<p>".concat(tableauTexte[3], "</p>");
-        ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(0, ".png\" alt=\"avatar-Ali\"  />");
+        clearInterval(Clear);
+        setTimeout(function () {
+          autreimg.style.display = "none";
+          h5.innerHTML = "<h5>".concat(tableauName[3], " </h5>");
+          p.innerHTML = "<p>".concat(tableauTexte[3], "</p>");
+          ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(0, ".png\" alt=\"avatar-Ali\"  />");
+        }, 3000);
       }
     }, 2000);
   }

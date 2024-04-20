@@ -10,13 +10,13 @@ const h5 = document.querySelector("#h5-js");
 
 Hamburger.addEventListener("click", () => {
   console.log("p");
-  NavUl.classList.toggle("NavADD");
+  NavUl.classList.toggle("NavUl");
   NavLi.forEach((li) => {
     li.classList.add("NavLi");
   });
 });
 // h5.innerHTML = `<h5>${tableauName[nombre]}</h5>`;
-let tableauName = ["Anisha Li", "Ali Bravo", "Richard Watts", "Shanai Gough"];
+let tableauName = ["Anisha Li", "Richard Watts", "Shanai Gough", "Ali Bravo"];
 let tableauTexte = [
   ` "ge has supercharged our team s workflow. The 
     naintain visibility on larger milestones at all times
@@ -28,21 +28,18 @@ let tableauTexte = [
   `"Their sofware allows us to track, manage and colloborate
     on our projects from anywhere. it keeps the whole team in-
     sync without being intrusive"`,
-  ` "We have been able to cancel so many other subscriptions
-    since using Manahe. There is no more cross-channel
+  ` "We have been able to cancel so many other subscriptions<BR>
+    since using Manahe. There is no more cross-channel<br>
     confusion and everyone is much more focused."`,
 ];
 
 function apres(number) {
-  setTimeout(() => {
-    ChangementImg.innerHTML = `   <img src="./assets/images/avatar-${number}.png" alt="avatar-Ali" id = "surprimer"  />`;
-    h5.innerHTML = `<h5>${tableauName[count]} </h5>`;
-    p.innerHTML = `<p>${tableauTexte[count]}</p>`;
-  });
+  ChangementImg.innerHTML = `   <img src="./assets/images/avatar-${number}.png" alt="avatar-Ali" id = "surprimer"  />`;
+  h5.innerHTML = `<h5>${tableauName[count]} </h5>`;
+  p.innerHTML = `<p>${tableauTexte[count]}</p>`;
 }
 function add(nombre) {
   Cercles[nombre].classList.add("CircleStyle");
-  p.innerHTML = `<p>${tableauTexte[nombre]}</p>`;
 }
 
 function remove(number) {
@@ -51,13 +48,11 @@ function remove(number) {
   }, 2000);
 }
 let count = -1;
-let Clear = "Intervall";
 
-const media1 = window.matchMedia("(max-width:1000px)");
-const media2 = window.matchMedia("(min-width:1000px)");
-window.onload = function () {
+const media1 = window.matchMedia("(max-width:750px)");
+const media2 = window.matchMedia("(min-width:750px)");
+window.onload = function c() {
   if (media1.matches) {
-    console.log("p");
     let Clear = setInterval(() => {
       if (count == 3) {
         count = -1;
@@ -85,10 +80,12 @@ window.onload = function () {
         apres(0);
       } else if (media2.matches) {
         clearInterval(Clear);
-        autreimg.style.display = "none";
-        // h5.innerHTML = `<h5>${tableauName[2]} </h5>`;
-        p.innerHTML = `<p>${tableauTexte[3]}</p>`;
-        ChangementImg.innerHTML = `   <img src="./assets/images/avatar-${0}.png" alt="avatar-Ali"  />`;
+        setTimeout(() => {
+          autreimg.style.display = "none";
+          h5.innerHTML = `<h5>${tableauName[3]} </h5>`;
+          p.innerHTML = `<p>${tableauTexte[3]}</p>`;
+          ChangementImg.innerHTML = `   <img src="./assets/images/avatar-${0}.png" alt="avatar-Ali"  />`;
+        }, 3000);
       }
     }, 2000);
   }
