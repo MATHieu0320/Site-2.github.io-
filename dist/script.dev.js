@@ -8,6 +8,8 @@ var ChangementImg = document.querySelector(".img2 ");
 var autreimg = document.getElementById("#suprimer");
 var p = document.querySelector("#p-js");
 var h5 = document.querySelector("#h5-js");
+var form = document.querySelector("form");
+var email = document.getElementById("mail");
 Hamburger.addEventListener("click", function () {
   console.log("p");
   NavUl.classList.toggle("NavUl");
@@ -81,4 +83,22 @@ window.onload = function c() {
       }
     }, 2000);
   }
-};
+}; // email.addEventListener("input", () => {
+//   let regexMail = "[w-.]+@([w-]+.)+[w-]{2,4}   ";
+//   if (email.value == regexMail) {
+//     console.log("correct");
+//   }
+// });
+
+
+var obj = {};
+email.addEventListener("input", function (e) {
+  if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {// alert("Votre Email est incorrect ! ");
+  } else {
+    obj.email = email.value;
+  }
+});
+form.addEventListener("submit", function (e) {
+  console.log(obj);
+  e.preventDefault();
+});

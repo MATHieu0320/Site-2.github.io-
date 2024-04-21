@@ -7,7 +7,8 @@ const ChangementImg = document.querySelector(".img2 ");
 const autreimg = document.getElementById("#suprimer");
 const p = document.querySelector("#p-js");
 const h5 = document.querySelector("#h5-js");
-
+const form = document.querySelector("form");
+const email = document.getElementById("mail");
 Hamburger.addEventListener("click", () => {
   console.log("p");
   NavUl.classList.toggle("NavUl");
@@ -90,3 +91,22 @@ window.onload = function c() {
     }, 2000);
   }
 };
+
+// email.addEventListener("input", () => {
+//   let regexMail = "[w-.]+@([w-]+.)+[w-]{2,4}   ";
+//   if (email.value == regexMail) {
+//     console.log("correct");
+//   }
+// });
+let obj = {};
+email.addEventListener("input", (e) => {
+  if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+    // alert("Votre Email est incorrect ! ");
+  } else {
+    obj.email = email.value;
+  }
+});
+form.addEventListener("submit", (e) => {
+  console.log(obj);
+  e.preventDefault();
+});
