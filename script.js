@@ -9,6 +9,8 @@ const p = document.querySelector("#p-js");
 const h5 = document.querySelector("#h5-js");
 const form = document.querySelector("form");
 const email = document.getElementById("mail");
+const error = document.getElementById("error");
+
 Hamburger.addEventListener("click", () => {
   console.log("p");
   NavUl.classList.toggle("NavUl");
@@ -92,21 +94,31 @@ window.onload = function c() {
   }
 };
 
-// email.addEventListener("input", () => {
-//   let regexMail = "[w-.]+@([w-]+.)+[w-]{2,4}   ";
-//   if (email.value == regexMail) {
-//     console.log("correct");
-//   }
-// });
 let obj = {};
-email.addEventListener("input", (e) => {
+// function EmailChecker(params) {
+//   email.addEventListener("input", () => {
+//     if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+//       console.log("v");
+//     } else {
+//       obj.email = email.value;
+//     }
+//   });
+// }
+function emailChecker(params) {
   if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
-    // alert("Votre Email est incorrect ! ");
+    error.style.display = "block";
+    error.textContent = " Please enter a valid email address";
+    console.log("non");
   } else {
-    obj.email = email.value;
+    error.style.display = "none";
+    console.log("valid");
+  }
+}
+email.addEventListener("input", (e) => {
+  if (e.target.id == "mail") {
   }
 });
 form.addEventListener("submit", (e) => {
-  console.log(obj);
+  emailChecker();
   e.preventDefault();
 });
