@@ -560,6 +560,7 @@ footer .flex2 li:hover {
   transition: 0.2s;
 }
 footer .flex3 {
+  position: relative;
   display: FLEX;
   flex-direction: COLUMN;
   justify-content: SPACE-BETWEEN;
@@ -569,6 +570,12 @@ footer .flex3 #flex3-container {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+}
+footer .flex3 #error {
+  position: absolute;
+  color: rgb(237, 44, 73);
+  top: 27%;
+  left: 5%;
 }
 footer .flex3 input {
   min-width: 100px;
@@ -628,6 +635,10 @@ footer .flex3 span {
   }
   footer .flex3 span {
     display: none;
+  }
+  #error {
+    top: 68% !important;
+    left: 2% !important;
   }
   footer button {
     display: block;

@@ -1,8 +1,8 @@
 "use strict";
 
+var Hamburger = document.getElementById("hamburger");
 var NavUl = document.querySelector("nav ul");
 var NavLi = document.querySelectorAll("nav ul li");
-var Hamburger = document.getElementById("hamburger");
 var Cercles = document.querySelectorAll(".circle1");
 var ChangementImg = document.querySelector(".img2 ");
 var autreimg = document.getElementById("#suprimer");
@@ -17,8 +17,7 @@ Hamburger.addEventListener("click", function () {
   NavLi.forEach(function (li) {
     li.classList.add("NavLi");
   });
-}); // h5.innerHTML = `<h5>${tableauName[nombre]}</h5>`;
-
+});
 var tableauName = ["Anisha Li", "Richard Watts", "Shanai Gough", "Ali Bravo"];
 var tableauTexte = [" \"ge has supercharged our team s workflow. The \n    naintain visibility on larger milestones at all times\n    keeps everyone motivated.\"", " \"Manage ailows us to provide structure and pro \n    keeps us organized and focused.I can't stop recording \n    them toeveryone i talk to! \"", "\"Their sofware allows us to track, manage and colloborate\n    on our projects from anywhere. it keeps the whole team in-\n    sync without being intrusive\"", " \"We have been able to cancel so many other subscriptions<BR>\n    since using Manahe. There is no more cross-channel<br>\n    confusion and everyone is much more focused.\""];
 
@@ -80,37 +79,29 @@ window.onload = function c() {
           h5.innerHTML = "<h5>".concat(tableauName[3], " </h5>");
           p.innerHTML = "<p>".concat(tableauTexte[3], "</p>");
           ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(0, ".png\" alt=\"avatar-Ali\"  />");
-        }, 3000);
+        }, 3500);
       }
     }, 2000);
   }
 };
 
-var obj = {}; // function EmailChecker(params) {
-//   email.addEventListener("input", () => {
-//     if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
-//       console.log("v");
-//     } else {
-//       obj.email = email.value;
-//     }
-//   });
-// }
+var obj = {};
 
 function emailChecker(params) {
   if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     error.style.display = "block";
     error.textContent = " Please enter a valid email address";
-    console.log("non");
   } else {
-    error.style.display = "none";
+    error.textContent = "Email Valid";
+    error.style.color = "green";
+    setTimeout(function () {
+      error.style.display = "none";
+    }, 2000);
     console.log("valid");
   }
 }
 
-email.addEventListener("input", function (e) {
-  if (e.target.id == "mail") {}
-});
 form.addEventListener("submit", function (e) {
-  emailChecker();
   e.preventDefault();
+  emailChecker();
 });

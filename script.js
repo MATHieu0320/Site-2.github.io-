@@ -1,12 +1,13 @@
-const NavUl = document.querySelector("nav ul");
-
-const NavLi = document.querySelectorAll("nav ul li");
 const Hamburger = document.getElementById("hamburger");
+const NavUl = document.querySelector("nav ul");
+const NavLi = document.querySelectorAll("nav ul li");
+
 const Cercles = document.querySelectorAll(".circle1");
 const ChangementImg = document.querySelector(".img2 ");
 const autreimg = document.getElementById("#suprimer");
 const p = document.querySelector("#p-js");
 const h5 = document.querySelector("#h5-js");
+
 const form = document.querySelector("form");
 const email = document.getElementById("mail");
 const error = document.getElementById("error");
@@ -18,7 +19,7 @@ Hamburger.addEventListener("click", () => {
     li.classList.add("NavLi");
   });
 });
-// h5.innerHTML = `<h5>${tableauName[nombre]}</h5>`;
+
 let tableauName = ["Anisha Li", "Richard Watts", "Shanai Gough", "Ali Bravo"];
 let tableauTexte = [
   ` "ge has supercharged our team s workflow. The 
@@ -88,37 +89,29 @@ window.onload = function c() {
           h5.innerHTML = `<h5>${tableauName[3]} </h5>`;
           p.innerHTML = `<p>${tableauTexte[3]}</p>`;
           ChangementImg.innerHTML = `   <img src="./assets/images/avatar-${0}.png" alt="avatar-Ali"  />`;
-        }, 3000);
+        }, 3500);
       }
     }, 2000);
   }
 };
 
 let obj = {};
-// function EmailChecker(params) {
-//   email.addEventListener("input", () => {
-//     if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
-//       console.log("v");
-//     } else {
-//       obj.email = email.value;
-//     }
-//   });
-// }
+
 function emailChecker(params) {
   if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     error.style.display = "block";
     error.textContent = " Please enter a valid email address";
-    console.log("non");
   } else {
-    error.style.display = "none";
+    error.textContent = "Email Valid";
+    error.style.color = "green";
+    setTimeout(() => {
+      error.style.display = "none";
+    }, 2000);
     console.log("valid");
   }
 }
-email.addEventListener("input", (e) => {
-  if (e.target.id == "mail") {
-  }
-});
+
 form.addEventListener("submit", (e) => {
-  emailChecker();
   e.preventDefault();
+  emailChecker();
 });
