@@ -75,11 +75,10 @@ window.onload = function c() {
       } else if (media2.matches) {
         clearInterval(Clear);
         setTimeout(function () {
-          autreimg.style.display = "none";
           h5.innerHTML = "<h5>".concat(tableauName[3], " </h5>");
           p.innerHTML = "<p>".concat(tableauTexte[3], "</p>");
           ChangementImg.innerHTML = "   <img src=\"./assets/images/avatar-".concat(0, ".png\" alt=\"avatar-Ali\"  />");
-        }, 3500);
+        }, 3000);
       }
     }, 2000);
   }

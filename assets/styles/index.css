@@ -129,7 +129,7 @@ header nav ul {
   justify-content: space-between;
   align-items: center;
   width: 35%;
-  min-width: 403px;
+  min-width: 456px;
 }
 header nav li a {
   color: hsl(233, 12%, 13%);
